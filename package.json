@@ -1,6 +1,7 @@
 {
   "name": "sqlnotes",
   "version": "4.2.0",
+  "private": "true",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
