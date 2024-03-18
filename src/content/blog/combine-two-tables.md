@@ -1,9 +1,10 @@
 ---
 pubDatetime: 2024-03-17T21:09:32.000-04:00
-modDatetime:
+modDatetime: 2024-03-18T12:30:21Z
 slug: combine-two-tables
 title: 175. Combine Two Tables
 difficulty: Easy
+draft: false
 ---
 
 ```sql
