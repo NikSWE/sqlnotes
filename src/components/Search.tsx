@@ -5,7 +5,7 @@ import type { CollectionEntry } from "astro:content";
 
 export type SearchItem = {
   title: string;
-  description: string;
+  description?: string;
   data: CollectionEntry<"blog">["data"];
   slug: string;
 };
@@ -33,7 +33,7 @@ export default function SearchBar({ searchList }: Props) {
   const fuse = useMemo(
     () =>
       new Fuse(searchList, {
-        keys: ["title", "description"],
+        keys: ["title", "difficulty"],
         includeMatches: true,
         minMatchCharLength: 2,
         threshold: 0.5,
@@ -112,7 +112,7 @@ export default function SearchBar({ searchList }: Props) {
         {searchResults &&
           searchResults.map(({ item, refIndex }) => (
             <Card
-              href={`/posts/${item.slug}/`}
+              href={`/problems/${item.slug}/`}
               frontmatter={item.data}
               key={`${refIndex}-${item.slug}`}
             />
