@@ -77,7 +77,7 @@ const socialCount = SOCIALS.filter(social => social.active).length;
             <ul>
               {featuredPosts.map(({ data, slug }) => (
                 <Card
-                  href={`/posts/${slug}/`}
+                  href={`/problems/${slug}/`}
                   frontmatter={data}
                   secHeading={false}
                 />
@@ -92,13 +92,13 @@ const socialCount = SOCIALS.filter(social => social.active).length;
     {
       recentPosts.length > 0 && (
         <section id="recent-posts">
-          <h2>Recent Posts</h2>
+          <h2>Recent Problems</h2>
           <ul>
             {recentPosts.map(
               ({ data, slug }, index) =>
                 index < 4 && (
                   <Card
-                    href={`/posts/${slug}/`}
+                    href={`/problems/${slug}/`}
                     frontmatter={data}
                     secHeading={false}
                   />
@@ -110,7 +110,7 @@ const socialCount = SOCIALS.filter(social => social.active).length;
     }
 
     <div class="all-posts-btn-wrapper">
-      <LinkButton href="/posts/">
+      <LinkButton href="/problems/">
         All Posts
         <svg xmlns="http://www.w3.org/2000/svg"
           ><path
