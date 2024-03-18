@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-03-17T21:09:32.000-04:00
-modDatetime: 2024-03-18T09:11:38.434-0400
+modDatetime: 2024-03-18T09:13:05.571-04:00
 slug: combine-two-tables
 title: 175. Combine Two Tables
 difficulty: Easy
