@@ -1,5 +1,6 @@
 import { slugifyStr } from "@utils/slugify";
 import Datetime from "./Datetime";
+import DifficultyTag from "./DifficultyTag";
 import type { CollectionEntry } from "astro:content";
 
 export interface Props {
@@ -9,8 +10,8 @@ export interface Props {
 }
 
 export default function Card({ href, frontmatter, secHeading = true }: Props) {
-  const { title, pubDatetime, modDatetime, description } = frontmatter;
-
+  const { title, pubDatetime, modDatetime, description, difficulty } =
+    frontmatter;
   const headerProps = {
     style: { viewTransitionName: slugifyStr(title) },
     className: "text-lg font-medium decoration-dashed hover:underline",
@@ -23,9 +24,15 @@ export default function Card({ href, frontmatter, secHeading = true }: Props) {
         className="inline-block text-lg font-medium text-skin-accent decoration-dashed underline-offset-4 focus-visible:no-underline focus-visible:underline-offset-0"
       >
         {secHeading ? (
-          <h2 {...headerProps}>{title}</h2>
+          <div className="flex items-center">
+            <h2 {...headerProps}>{title}</h2>
+            <DifficultyTag difficulty={difficulty} className="ml-4" />
+          </div>
         ) : (
-          <h3 {...headerProps}>{title}</h3>
+          <div className="flex items-center">
+            <h3 {...headerProps}>{title}</h3>
+            <DifficultyTag difficulty={difficulty} className="ml-4" />
+          </div>
         )}
       </a>
       <Datetime pubDatetime={pubDatetime} modDatetime={modDatetime} />

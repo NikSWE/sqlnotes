@@ -4,9 +4,9 @@ import Header from "@components/Header.astro";
 import Footer from "@components/Footer.astro";
 import Tag from "@components/Tag.astro";
 import Datetime from "@components/Datetime";
+import DifficultyTag from "@components/DifficultyTag";
 import type { CollectionEntry } from "astro:content";
 import { slugifyStr } from "@utils/slugify";
-import ShareLinks from "@components/ShareLinks.astro";
 import { SITE } from "@config";
 
 export interface Props {
@@ -24,6 +24,7 @@ const {
   pubDatetime,
   modDatetime,
   tags,
+  difficulty,
 } = post.data;
 
 const { Content } = await post.render();
@@ -43,6 +44,7 @@ const layoutProps = {
   canonicalURL,
   ogImage: ogUrl,
   scrollSmooth: true,
+  difficulty,
 };
 ---
 
@@ -66,7 +68,10 @@ const layoutProps = {
     </button>
   </div>
   <main id="main-content">
-    <h1 transition:name={slugifyStr(title)} class="post-title">{title}</h1>
+    <h1 transition:name={slugifyStr(title)} class="post-title">
+      {title}
+      <DifficultyTag difficulty={difficulty} className="mb-1" />
+    </h1>
     <Datetime
       pubDatetime={pubDatetime}
       modDatetime={modDatetime}
