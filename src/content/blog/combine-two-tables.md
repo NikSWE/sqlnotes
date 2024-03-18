@@ -12,3 +12,5 @@ from person as p
 left join address as a
 on a.personId = p.personId
 ```
+
+W.I.P
